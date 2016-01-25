@@ -14,6 +14,10 @@ namespace invoke
         private static extern IntPtr UnmanagedB_setMethodHandler(IntPtr instance,
         [MarshalAs(UnmanagedType.FunctionPtr)]MethodHandler ptr);
 
+        [DllImport("shim.dll", CallingConvention = CallingConvention.Cdecl)]
+        private static extern void UnmanagedB_resetManagedObject(IntPtr instance);
+
+        [UnmanagedFunctionPointerAttribute(CallingConvention.Cdecl)]
         private delegate int MethodHandler(int arg);
 
         private int impl_method(int arg)
@@ -31,7 +35,7 @@ namespace invoke
 
         ~AB()
         {
-            Utils.resetManagedObject(mInstance);
+            UnmanagedB_resetManagedObject(mInstance);
             Utils.release(mInstance);
         }
 

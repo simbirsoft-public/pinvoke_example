@@ -26,11 +26,5 @@ namespace invoke
             if (instance != IntPtr.Zero)
                 IObject_release(instance);
         }
-
-        internal static void resetManagedObject(IntPtr instance)
-        {
-            if (instance != IntPtr.Zero)
-                IReset_resetManagedObject(instance);
-        }
     }
 }

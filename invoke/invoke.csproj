@@ -48,6 +48,7 @@
     <Compile Include="AB.cs" />
     <Compile Include="BImpl.cs" />
     <Compile Include="C.cs" />
+    <Compile Include="D.cs" />
     <Compile Include="ModuleException.cs" />
     <Compile Include="ObjectManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

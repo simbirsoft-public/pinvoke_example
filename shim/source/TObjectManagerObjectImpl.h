@@ -1,12 +1,11 @@
 #pragma once
 
 #include "UnmanagedObjectManager.h"
-#include "IReset.h"
 
 namespace shim
 {
 	template <typename T>
-	class TObjectManagerObjectImpl : public T, IReset
+	class TObjectManagerObjectImpl : public T
 	{
 		mutable bool mManagedObjectReleased;
 	public:
@@ -39,7 +38,7 @@ namespace shim
 			return result == 0;
 		}
 
-		virtual void resetManagedObject() const
+		void resetManagedObject() const
 		{
 			mManagedObjectReleased = true;
 		}

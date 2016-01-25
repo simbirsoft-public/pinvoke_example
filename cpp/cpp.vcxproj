@@ -14,6 +14,7 @@
     <ClInclude Include="include\include_cpp.h" />
     <ClInclude Include="source\A.h" />
     <ClInclude Include="source\C.h" />
+    <ClInclude Include="source\D.h" />
     <ClInclude Include="source\IB.h" />
     <ClInclude Include="source\IObject.h" />
     <ClInclude Include="source\ModuleException.h" />
@@ -23,6 +24,7 @@
   <ItemGroup>
     <ClCompile Include="source\A.cpp" />
     <ClCompile Include="source\C.cpp" />
+    <ClCompile Include="source\D.cpp" />
     <ClCompile Include="source\IB.cpp" />
     <ClCompile Include="source\IObject.cpp" />
     <ClCompile Include="source\ModuleException.cpp" />
@@ -68,6 +70,8 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PrecompiledHeader>Use</PrecompiledHeader>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Async</ExceptionHandling>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>

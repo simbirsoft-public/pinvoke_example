@@ -13,8 +13,3 @@ SHIM void IObject_release(IObject *instance)
 {
 	instance->release();
 }
-
-SHIM void IReset_resetManagedObject(IReset *instance)
-{
-	instance->resetManagedObject();
-}

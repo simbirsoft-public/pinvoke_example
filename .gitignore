@@ -10,3 +10,5 @@ invoke/obj
 shim/Debug
 *.vcxproj.user
 program/obj
+*.csproj.user
+*ipch

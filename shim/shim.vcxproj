@@ -13,7 +13,6 @@
   <ItemGroup>
     <ClInclude Include="include\shim_api.h" />
     <ClInclude Include="include\type_defenitions.h" />
-    <ClInclude Include="source\IReset.h" />
     <ClInclude Include="source\stdafx.h" />
     <ClInclude Include="source\TObjectManagerObjectImpl.h" />
     <ClInclude Include="source\UnmanagedC.h" />
@@ -26,7 +25,9 @@
     </ClCompile>
     <ClCompile Include="source\B.cpp" />
     <ClCompile Include="source\C.cpp" />
+    <ClCompile Include="source\D.cpp" />
     <ClCompile Include="source\ModuleException.cpp" />
+    <ClCompile Include="source\ObjectManager.cpp" />
     <ClCompile Include="source\stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
     </ClCompile>
@@ -46,6 +47,7 @@
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v120</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
+    <CLRSupport>false</CLRSupport>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -66,6 +68,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <OutDir>$(SolutionDir)bin\$(Configuration)\</OutDir>
+    <EnableManagedIncrementalBuild>true</EnableManagedIncrementalBuild>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -76,6 +79,9 @@
       <PreprocessorDefinitions>_WINDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>stdafx.h</PrecompiledHeaderFile>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Async</ExceptionHandling>
+      <CompileAsManaged>false</CompileAsManaged>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>

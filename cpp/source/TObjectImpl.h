@@ -14,12 +14,12 @@ namespace cpp
 
 		virtual ~TObjectImpl() {}
 
-		void addRef() const
+		virtual void addRef() const
 		{
 			++mRefs;
 		}
 
-		bool release() const
+		virtual bool release() const
 		{
 			long result = --mRefs;
 			if (result == 0)

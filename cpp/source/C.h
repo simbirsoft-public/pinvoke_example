@@ -6,7 +6,7 @@
 namespace cpp
 {
 
-	class CPP C : TObjectImpl<IObject>
+	class CPP C : public TObjectImpl<IObject>
 	{
 	public:
 		C();

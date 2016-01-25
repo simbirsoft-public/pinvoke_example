@@ -19,8 +19,12 @@ namespace invoke
         [MarshalAs(UnmanagedType.FunctionPtr)]MethodHandler ptr);
 
         [DllImport("shim.dll", CallingConvention = CallingConvention.Cdecl)]
+        private static extern void UnmanagedC_resetManagedObject(IntPtr instance);
+
+        [DllImport("shim.dll", CallingConvention = CallingConvention.Cdecl)]
         private static extern int C_method(IntPtr instance, int arg, ref IntPtr error);
 
+        [UnmanagedFunctionPointerAttribute(CallingConvention.Cdecl)]
         private delegate int MethodHandler(int arg, ref IntPtr error);
 
         private int impl_method(int arg, ref IntPtr error)
@@ -58,7 +62,7 @@ namespace invoke
 
         ~C()
         {
-            Utils.resetManagedObject(mHandlerInstance);
+            UnmanagedC_resetManagedObject(mHandlerInstance);
             Utils.release(mHandlerInstance);
 
             Utils.release(mInstance);

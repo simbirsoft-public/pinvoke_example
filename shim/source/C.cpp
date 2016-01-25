@@ -15,21 +15,30 @@ SHIM void UnmanagedC_setMethodHandler(UnmanagedC *instance, Ñ_method_ptr ptr)
 	instance->setMethodHandler(ptr);
 }
 
+SHIM void UnmanagedC_resetManagedObject(UnmanagedC *instance)
+{
+    instance->resetManagedObject();
+}
+
 SHIM C *C_createInstance()
 {
 	return new C();
 }
 
+int C_method_error(C *instance, int arg, ModuleException **error)
+{
+    try
+    {
+        return instance->method(arg);
+    }
+    catch (ModuleException& ex)
+    {
+        *error = new ModuleException(ex.getCode());
+        return 0;
+    }
+}
+
 SHIM int C_method(C *instance, int arg, ModuleException **error)
 {
-	try
-	{
-		return instance->method(arg);
-	}
-	catch (ModuleException ex)
-	{
-		*error = new ModuleException(ex.getCode());
-		ex.release();
-		return 0;
-	}
+    return C_method_error(instance, arg, error);
 }

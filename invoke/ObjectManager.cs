@@ -6,7 +6,9 @@ namespace invoke
 {
     internal static class ObjectManager
     {
+        [UnmanagedFunctionPointerAttribute(CallingConvention.Cdecl)]
         private delegate void AddHandler(IntPtr instance);
+        [UnmanagedFunctionPointerAttribute(CallingConvention.Cdecl)]
         private delegate long RemoveHandler(IntPtr instance);
 
         [DllImport("shim.dll", CallingConvention = CallingConvention.Cdecl)]

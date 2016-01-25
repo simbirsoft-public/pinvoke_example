@@ -14,7 +14,11 @@ int UnmanagedC::method(int arg)
 {
 	cpp::ModuleException *error = nullptr;
 	int result = mÑ_method_ptr(arg, &error);
-	if (error != nullptr)
-		throw error;
+    if (error != nullptr)
+    {
+        int code = error->getCode();
+        error->release();
+        throw cpp::ModuleException(code);
+    }
 	return result;
 }
