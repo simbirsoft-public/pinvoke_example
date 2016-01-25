@@ -58,6 +58,7 @@ namespace invoke
                 holder = new Holder();
                 holder.count = 1;
                 holder.ptr = ptr;
+                mObjectMap.Add(instance, holder);
             }
             else
             {
