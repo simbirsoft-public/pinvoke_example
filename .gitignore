@@ -1,0 +1,12 @@
+.vs
+*.suo
+bin
+*.sdf
+cpp/Debug
+*.vcxproj.filters
+cpp/ipch
+*.opensdf
+invoke/obj
+shim/Debug
+*.vcxproj.user
+program/obj
