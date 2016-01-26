@@ -25,7 +25,7 @@ SHIM C *C_createInstance()
 	return new C();
 }
 
-int C_method_error(C *instance, int arg, ModuleException **error)
+SHIM int C_method(C *instance, int arg, ModuleException **error)
 {
     try
     {
@@ -36,9 +36,4 @@ int C_method_error(C *instance, int arg, ModuleException **error)
         *error = new ModuleException(ex.getCode());
         return 0;
     }
-}
-
-SHIM int C_method(C *instance, int arg, ModuleException **error)
-{
-    return C_method_error(instance, arg, error);
 }
